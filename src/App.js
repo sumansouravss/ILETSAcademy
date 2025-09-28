@@ -1,86 +1,96 @@
 import React, { useState, useEffect } from "react";
-import banner1 from "./assets/banner1.png";
-import banner2 from "./assets/banner2.jpeg";
-import banner3 from "./assets/banner3.jpeg";
+import banner1 from "./assets/banner1.jpg";
+import banner2 from "./assets/banner3.jpg";
+import banner3 from "./assets/banner4.jpg";
 import speakingImg from "./assets/speakingImg.jpeg";
 import mockImg from "./assets/mockImg.jpeg";
 import aiImg from "./assets/aiImg.jpeg";
 import mentorImg from "./assets/mentorImg.jpeg";
 import midbanner from "./assets/midbanner.png";
-import contactus from "./assets/contactus.png";
+import contactus from "./assets/contactus.jpeg";
 import './index.css';
+import { FaGraduationCap, FaVideo } from "react-icons/fa";
+import image1 from "./assets/image1.png";
+import image2 from "./assets/image2.png";
+import { FaQuoteLeft } from "react-icons/fa";
+import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
+
+
 
 // Navbar
 function Navbar({ onLoginClick, onSignupClick }) {
   return (
-    <nav className="flex justify-between items-center p-5 bg-blue-600 text-white fixed w-full top-0 z-50">
-      {/* Left Menu */}
-     {/* Explore Dropdown */}
-<div className="relative group">
-  <button className="hover:text-yellow-300 text-2xl font-semibold">
-    Explore ▾
-  </button>
-  <ul className="absolute hidden group-hover:block bg-white text-blue-600 mt-2 rounded-lg shadow-lg w-40">
-    <li>
-      <a
-        href="#home"
-        className="block px-4 py-2 hover:bg-blue-600 hover:text-white rounded-t-lg"
-      >
-        Home
-      </a>
-    </li>
-    <li>
-      <a
-        href="#about"
-        className="block px-4 py-2 hover:bg-blue-600 hover:text-white"
-      >
-        About
-      </a>
-    </li>
-    <li>
-      <a
-        href="#features"
-        className="block px-4 py-2 hover:bg-blue-600 hover:text-white"
-      >
-        Courses
-      </a>
-    </li>
-    <li>
-      <a
-        href="#testimonials"
-        className="block px-4 py-2 hover:bg-blue-600 hover:text-white"
-      >
-        Testimonials
-      </a>
-    </li>
-    <li>
-      <a
-        href="#contact"
-        className="block px-4 py-2 hover:bg-blue-600 hover:text-white rounded-b-lg"
-      >
-        Contact
-      </a>
-    </li>
-  </ul>
-</div>
-
+    <nav className="flex justify-between items-center px-6 py-4 
+      bg-white/20 backdrop-blur-lg rounded-2xl shadow-md 
+      text-blue-900 fixed w-[90%] left-1/2 transform -translate-x-1/2 top-4 z-50">
+      
+      {/* Left Menu - Explore Dropdown */}
+      <div className="relative group">
+        <button className="hover:text-blue-700 text-lg font-semibold flex items-center gap-1">
+          Explore ▾
+        </button>
+        <ul className="absolute hidden group-hover:block bg-white text-blue-600 mt-2 rounded-xl shadow-lg w-44 overflow-hidden">
+          <li>
+            <a
+              href="#home"
+              className="block px-4 py-2 hover:bg-blue-600 hover:text-white"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="#about"
+              className="block px-4 py-2 hover:bg-blue-600 hover:text-white"
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href="#features"
+              className="block px-4 py-2 hover:bg-blue-600 hover:text-white"
+            >
+              Courses
+            </a>
+          </li>
+          <li>
+            <a
+              href="#testimonials"
+              className="block px-4 py-2 hover:bg-blue-600 hover:text-white"
+            >
+              Testimonials
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              className="block px-4 py-2 hover:bg-blue-600 hover:text-white"
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
 
       {/* Academy Name Center */}
-      <h1 className="text-4xl font-bold text-white absolute left-1/2 transform -translate-x-1/2">
+      <h1 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
         IELTS Academy
       </h1>
 
       {/* Right Auth Buttons */}
-      <div className="flex gap-4">
+      <div className="flex gap-3">
         <button
           onClick={onLoginClick}
-          className="px-4 py-2 border border-white rounded hover:bg-white hover:text-blue-600 transition"
+          className="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg 
+          hover:bg-blue-600 hover:text-white transition font-medium"
         >
           Login
         </button>
         <button
           onClick={onSignupClick}
-          className="px-4 py-2 bg-white text-blue-600 rounded hover:bg-gray-200 transition"
+          className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white 
+          rounded-lg hover:opacity-90 transition font-medium shadow-md"
         >
           Signup
         </button>
@@ -88,74 +98,168 @@ function Navbar({ onLoginClick, onSignupClick }) {
     </nav>
   );
 }
-
 // Hero with Carousel
 function Hero() {
- const banners = [banner1, banner2, banner3];
+  const banners = [banner1, banner2, banner3];
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(
       () => setCurrent((prev) => (prev + 1) % banners.length),
-      3000
+      4000
     );
     return () => clearInterval(interval);
   }, [banners.length]);
 
   return (
-    <section
-      id="home"
-      className="flex flex-col md:flex-row items-center justify-between px-8 pt-32 pb-16 bg-gray-100"
-    >
-      <div className="max-w-lg">
-        <h1 className="text-6xl font-bold mb-4 text-blue-700">
+    <section id="home" className="relative h-screen w-full overflow-hidden">
+      {/* Background Image */}
+      <img
+        src={banners[current]}
+        alt="Banner"
+        className="absolute inset-0 w-full h-full object-cover transition-all duration-700"
+      />
+
+      {/* Dark Overlay for readability */}
+      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+
+      {/* Text Content */}
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+        <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">
           Crack IELTS with Confidence!
         </h1>
-        <p className="mb-6 text-gray-700 ">
+        <p className="mb-6 text-lg md:text-xl text-gray-200 max-w-2xl">
           Join 10,000+ students improving their English and achieving dream
           scores with expert mentorship.
         </p>
         <a href="#features">
-          <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+          <button className="px-8 py-3 bg-yellow-400 text-blue-900 font-semibold rounded-lg shadow-md hover:bg-yellow-300 transition">
             Get Started
           </button>
         </a>
       </div>
 
-      {/* Carousel */}
-      <div className="relative w-full md:w-1/2 mt-8 md:mt-0">
-        <img
-          src={banners[current]}
-          alt="Banner"
-          className="w-full rounded-lg shadow-lg transition-all duration-700"
-        />
-        {/* Dots */}
-        <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2">
-          {banners.map((_, index) => (
-            <div
-              key={index}
-              onClick={() => setCurrent(index)}
-              className={`w-3 h-3 rounded-full cursor-pointer ${
-                current === index ? "bg-white" : "bg-gray-400"
-              }`}
-            ></div>
-          ))}
-        </div>
+      {/* Dots */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-3 z-10">
+        {banners.map((_, index) => (
+          <div
+            key={index}
+            onClick={() => setCurrent(index)}
+            className={`w-3 h-3 rounded-full cursor-pointer ${
+              current === index ? "bg-white" : "bg-gray-500"
+            }`}
+          ></div>
+        ))}
       </div>
     </section>
   );
 }
 // About
+
 function About() {
   return (
     <section id="about" className="px-8 py-16 bg-white text-center">
       <h3 className="text-5xl font-bold mb-6">About IELTS Academy</h3>
-      <p className="max-w-5xl mx-auto text-gray-600">
-       At IELTS Academy, we focus on personalized learning, practice-driven methods, and advanced AI tools to help students achieve their dream IELTS score. Our courses are designed to cater to learners of all levels, from beginners to advanced, ensuring that every student receives tailored guidance. With expert mentors who have years of experience in IELTS coaching, we provide strategies, tips, and feedback that directly target your strengths and areas for improvement
+      <p className="max-w-5xl mx-auto text-gray-600 mb-12">
+        At IELTS Academy, we focus on personalized learning, practice-driven methods, 
+        and advanced AI tools to help students achieve their dream IELTS score. 
+        Our courses are designed to cater to learners of all levels, from beginners to advanced, 
+        ensuring that every student receives tailored guidance. 
+        With expert mentors who have years of experience in IELTS coaching, 
+        we provide strategies, tips, and feedback that directly target your strengths 
+        and areas for improvement.
       </p>
+
+    
     </section>
   );
 }
+function LandscapeMobileVideo() {
+  return (
+    <div className="mx-auto relative w-[650px] h-[320px] bg-black rounded-[50px] border-[16px] border-gray-900 shadow-2xl overflow-hidden flex items-center justify-center">
+
+      {/* Camera (right side in landscape) */}
+      <div className="absolute right-5 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-800 rounded-full border-2 border-gray-700 shadow-inner"></div>
+      <div className="absolute right-16 top-1/2 -translate-y-1/2 w-6 h-6 bg-gray-700 rounded-full"></div>
+
+      {/* YouTube Video Embed */}
+      <iframe
+        className="w-full h-full rounded-[36px]"
+        src="https://www.youtube.com/embed/ymm_mi6G3EM"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      ></iframe>
+
+      {/* Glass reflection */}
+      <div className="absolute inset-0 pointer-events-none rounded-[50px] bg-gradient-to-t from-white/10 via-transparent to-transparent"></div>
+    </div>
+  );
+}
+
+function AboutSection() {
+  return (
+    <section className="w-full bg-gradient-to-r from-pink-50 to-purple-50 py-16">
+      <div className="container mx-auto flex flex-col md:flex-row items-center gap-10 px-6">
+        
+        {/* Left Images */}
+        <div className="flex gap-6">
+          <img
+            src={image1}
+            alt="student 1"
+            className="rounded-[50%] object-cover w-48 h-64 md:w-56 md:h-72 shadow-lg"
+          />
+          <img
+            src={image2}
+            alt="student 2"
+            className="rounded-[50%] object-cover w-48 h-64 md:w-56 md:h-72 shadow-lg"
+          />
+        </div>
+
+        {/* Right Content */}
+        <div className="max-w-lg">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            The Place Where You Can Achieve
+          </h2>
+          <p className="text-gray-600 mb-6">
+            There are many variations of passages of Lorem Ipsum available, 
+            but the majority have suffered alteration in some form.
+          </p>
+
+          {/* Features */}
+          <div className="space-y-4 mb-6">
+            <div className="flex items-start gap-3">
+              <FaGraduationCap className="text-blue-500 text-2xl mt-1" />
+              <div>
+                <h4 className="font-semibold text-gray-900">Flexible Classes</h4>
+                <p className="text-gray-600 text-sm">
+                  Lorem ipsum dolor sit amet consectetur. Convallis ornare semper id hendrerit diam.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <FaVideo className="text-red-500 text-2xl mt-1" />
+              <div>
+                <h4 className="font-semibold text-gray-900">Learn From Anywhere</h4>
+                <p className="text-gray-600 text-sm">
+                  Lorem ipsum dolor sit amet consectetur. Convallis ornare semper id hendrerit diam.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Button */}
+          <button className="px-6 py-3 bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-600 transition">
+            Read more
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 
 // Features
@@ -248,111 +352,122 @@ function InfoSection() {
 
 
 
-// Testimonials
 function Testimonials() {
   const reviews = [
     { 
       name: "Riya Sharma", 
+      role: "IELTS Student",
       text: "Thanks to IELTS Academy, I scored 8.0 in IELTS! The speaking practice sessions really boosted my confidence.",
       avatar: "https://i.pravatar.cc/100?img=1",
-      rating: 5,
     },
     { 
       name: "Arjun Mehta", 
+      role: "IELTS Student",
       text: "Amazing mentors and mock tests helped me a lot. The AI feedback helped me pinpoint exactly where I needed to improve.",
       avatar: "https://i.pravatar.cc/100?img=2",
-      rating: 5,
     },
     { 
       name: "Sneha Verma", 
+      role: "IELTS Student",
       text: "The AI Band Score feedback was so helpful for improvement. I could track my progress and understand my mistakes clearly.",
       avatar: "https://i.pravatar.cc/100?img=3",
-      rating: 4,
     },
     { 
       name: "Rahul Singh", 
+      role: "IELTS Student",
       text: "Best institute for IELTS prep, highly recommend! The personalized mentorship made a huge difference in my preparation.",
       avatar: "https://i.pravatar.cc/100?img=4",
-      rating: 5,
-    },
-    { 
-      name: "Ananya Gupta", 
-      text: "I loved the combination of live sessions, practice tests, and AI scoring. It made my preparation efficient and focused.",
-      avatar: "https://i.pravatar.cc/100?img=5",
-      rating: 4,
-    },
-    { 
-      name: "Vikram Joshi", 
-      text: "The platform is very user-friendly. I could practice anytime and the expert tips really helped me improve my reading and writing scores.",
-      avatar: "https://i.pravatar.cc/100?img=6",
-      rating: 5,
     },
   ];
 
-  // Generate star icons
-  const Star = ({ filled }) => (
-    <svg
-      className={`w-4 h-4 ${filled ? "text-yellow-400" : "text-gray-300"}`}
-      fill="currentColor"
-      viewBox="0 0 20 20"
-    >
-      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.975a1 1 0 00.95.69h4.21c.969 0 1.371 1.24.588 1.81l-3.404 2.474a1 1 0 00-.364 1.118l1.287 3.975c.3.922-.755 1.688-1.54 1.118l-3.404-2.473a1 1 0 00-1.176 0L5.034 16.99c-.784.57-1.838-.196-1.539-1.118l1.286-3.975a1 1 0 00-.364-1.118L1.013 9.402c-.783-.57-.38-1.81.588-1.81h4.21a1 1 0 00.95-.69l1.288-3.975z" />
-    </svg>
-  );
+  const [current, setCurrent] = useState(0);
+
+  const prevReview = () =>
+    setCurrent((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
+  const nextReview = () =>
+    setCurrent((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
 
   return (
-    <section id="testimonials" className="px-8 py-16 bg-gray-100 text-center">
-      <h3 className="text-3xl font-bold mb-10">What Our Students Say</h3>
+    <section id="testimonials" className="px-8 py-16 bg-white text-center">
+      <h2 className="text-3xl font-bold">TESTIMONIAL</h2>
+      <p className="text-gray-600 mb-10">What Our Students Say</p>
 
-      {/* Scrollable container */}
-      <div className="overflow-x-auto scrollbar-hide">
-        <div className="flex gap-6 snap-x snap-mandatory">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+        {/* Left side - student avatars */}
+        <div className="grid grid-cols-2 gap-6">
           {reviews.map((r, i) => (
-            <div
+            <img
               key={i}
-              className="testimonial p-6 bg-white rounded-lg shadow min-w-[280px] md:min-w-[400px] snap-center flex flex-col items-center"
-            >
-              <img
-                src={r.avatar}
-                alt={r.name}
-                className="w-16 h-16 rounded-full mb-4"
-              />
-              <p className="italic text-gray-700 mb-2">“{r.text}”</p>
-              <h5 className="font-semibold text-blue-700">{r.name}</h5>
-
-              {/* Stars */}
-              <div className="flex gap-1 mt-2">
-                {[1, 2, 3, 4, 5].map((n) => (
-                  <Star key={n} filled={n <= r.rating} />
-                ))}
-              </div>
-            </div>
+              src={r.avatar}
+              alt={r.name}
+              className={`w-full h-40 object-cover rounded-3xl border-4 ${
+                i === current ? "border-blue-600" : "border-transparent"
+              }`}
+            />
           ))}
         </div>
-      </div>
 
-      {/* Small hint */}
-      <p className="mt-4 text-gray-500 text-sm">← Swipe to see more →</p>
+        {/* Right side - active testimonial */}
+        <div className="text-left relative">
+          <FaQuoteLeft className="text-4xl text-blue-600 mb-4" />
+          <p className="text-lg italic text-gray-700 mb-6">
+            {reviews[current].text}
+          </p>
+          <div className="flex items-center gap-4">
+            <img
+              src={reviews[current].avatar}
+              alt={reviews[current].name}
+              className="w-12 h-12 rounded-full"
+            />
+            <div>
+              <h4 className="font-semibold text-lg">{reviews[current].name}</h4>
+              <p className="text-sm text-gray-500">{reviews[current].role}</p>
+            </div>
+          </div>
+
+          {/* Arrows */}
+          <div className="absolute top-0 right-0 flex gap-3">
+            <button
+              onClick={prevReview}
+              className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-200 hover:bg-blue-400 transition"
+            >
+              <MdArrowBackIos className="text-white" />
+            </button>
+            <button
+              onClick={nextReview}
+              className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-200 hover:bg-blue-400 transition"
+            >
+              <MdArrowForwardIos className="text-white" />
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
+
+
+
+
 function SupportBanner({ onContactClick }) {
   return (
     <section
-      className="px-8 py-24 bg-cover bg-center text-white relative flex flex-col items-center justify-center"
-      style={{ backgroundImage: `url(${contactus})` }} 
-    >
+  className="relative px-8 py-20 bg-cover bg-center text-white text-center flex flex-col items-center gap-4"
+  style={{ backgroundImage: `url(${contactus})` }}
+>
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
-      <div className="relative text-center max-w-2xl z-10">
-        <h3 className="text-6xl font-bold text-white mb-4">We are here to help</h3>
-        <p className="mb-6 text-lg">
-          In a chatty mood? Get in touch with our Customer Support Team with any questions you may have.
+      {/* Content */}
+      <div className="relative z-10 max-w-2xl">
+        <h1 className="text-4xl font-bold text-white mb-2">Need Help or Have Questions?</h1>
+        <p className="mb-4">
+          Our team is here to support you on your IELTS journey. Reach out to us for
+          guidance, queries, or support.
         </p>
-        <button 
+        <button
           onClick={onContactClick}
-          className="px-6 py-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition"
+          className="px-6 py-3 bg-yellow-400 text-blue-900 font-semibold rounded-lg shadow-md hover:bg-yellow-300 transition"
         >
           Contact Us
         </button>
@@ -360,7 +475,6 @@ function SupportBanner({ onContactClick }) {
     </section>
   );
 }
-
 
 
 // Footer with functional Newsletter and custom background
@@ -485,6 +599,8 @@ function App() {
       <Navbar onLoginClick={() => setLoginOpen(true)} onSignupClick={() => setSignupOpen(true)} />
       <Hero />
       <About />
+      <LandscapeMobileVideo />
+      <AboutSection/>
       <Features />
       <MidBanner />
       <InfoSection /> 
