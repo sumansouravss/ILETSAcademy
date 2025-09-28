@@ -553,7 +553,7 @@ function Footer() {
 
           <p className="mt-4">Follow us:</p>
           <div className="flex gap-4 mt-2">
-            <a href="https://ieltsacademy.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-300">🌐</a>
+            <a href="https://ielts-academy.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-300">🌐</a>
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-300">📘</a>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-300">🐦</a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-300">📸</a>
