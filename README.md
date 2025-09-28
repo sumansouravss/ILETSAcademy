@@ -37,6 +37,3 @@ Add more dynamic features like student dashboards and progress tracking.
 - **Design rationale**  
 - **Future improvements**  
 
-If you want, I can also **add screenshots and GIFs placeholders** for the hero, features, and testimonials sections to make it visually appealing for GitHub.  
-
-Do you want me to add that?
